@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h3>Text text text.</h3>
+        <h4>But this is also text?</h4>
+    </div>
+</div>
+<script>
+    const content = document.querySelector('.content');
+    //replaces content of a html tag using innerHTML
+    content.innerHTML = '<h1 id="lose">Text override from the script.</h1><h4>Another override text.</h4>';
+
+    const text = document.createElement('h1');
+    text.innerHTML = 'But this text does not override?';
+    content.appendChild(text);
+
+    const text1 = document.createElement('h3');
+    text1.innerHTML = 'The text continues.';
+    content.appendChild(text1);
+
+    const text2 = document.createElement('h3');
+    text2.innerHTML = 'When will the text end?';
+    content.appendChild(text2);
+
+    const text3 = document.createElement('h3');
+    text3.innerHTML = 'Perhaps it never will...';
+    content.appendChild(text3);
+
+
+    const pretext = document.createElement('h1');
+    pretext.innerHTML = 'The Great Story of Text';
+    content.insertAdjacentElement('beforebegin', pretext);
+
+    const unwantedElement = document.querySelector('h4');
+    unwantedElement.remove();
+
+    const unwantedElement2 = document.querySelector('#lose');
+    unwantedElement2.remove();
+</script>
+</body>
+</html>
